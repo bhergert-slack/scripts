@@ -1,5 +1,15 @@
+#!/bin/zsh
+
+##############################################################################
+# Useful Android Functions
+# ----------------------------------------------------
+# For everyday use - hand written and artisinal (potentially even organic!!!) 
+# Just source this file from your ~/.zshrc and you're good to go!
+##############################################################################
+
+
 # Prints the id of an emulator if one is running
-function get_emulator_id {
+function emulator_id {
   while read sn device; do
     echo $sn
     return
@@ -8,7 +18,7 @@ function get_emulator_id {
 
 # Enables/disables Talkback on the emulator
 function talkback {
-  ID=$(get_emulator_id)
+  ID=$(emulator_id)
   if [[ $1 = "on" ]]; then
     adb -s $ID shell settings put secure enabled_accessibility_services com.google.android.marvin.talkback/com.google.android.marvin.talkback.TalkBackService
   elif [[ $1 = "off" ]]; then
