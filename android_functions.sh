@@ -29,7 +29,7 @@ function talkback {
   fi
 }
 
-# Checks for a non-emulator device and opens it with scrcpy
+# Checks for a non-emulator device and opens it with scrcpy (https://github.com/Genymobile/scrcpy)
 function run_scrcpy {
   while read sn device; do
     [ ! -z "$sn" ] && scrcpy -s $sn
