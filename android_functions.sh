@@ -35,3 +35,12 @@ function run_scrcpy {
     [ ! -z "$sn" ] && scrcpy -s $sn
   done < <(adb devices | sed '1d' | grep -v "emulator")
 }
+
+# Enables/disables layout bounds
+function bounds() {
+  if [[ $1 = 'on' ]]; then
+    adb shell setprop debug.layout true; adb shell service call activity 1599295570 > /dev/null
+  else
+    adb shell setprop debug.layout false; adb shell service call activity 1599295570 > /dev/null
+  fi
+}
