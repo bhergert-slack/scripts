@@ -8,6 +8,6 @@ A bunch of useful shell scripts
 ```
 # Source all scripts in `~/scripts`
 for file in ~/scripts/*.sh; do
-    source "$file"
+  source "$file"
 done
 ```
